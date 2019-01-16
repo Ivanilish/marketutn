@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <h:head>
+        <title>Market UTN</title>
+      
+    </h:head>
+    <h:body>
+        <h:form>
+          <p:panel header="CONSULAR CLIENTE">
+                
+                <h:panelGrid columns="2">
+                    <p:outputLabel>CEDULA: </p:outputLabel>
+                    <p:inputText value="#{controllerCli.cedulaconsulta}"></p:inputText>
+                    <p:commandButton value="Consultar" actionListener="#{controllerCli.consultarEmpleado()}" update="@form"></p:commandButton>
+                </h:panelGrid>
+            </p:panel>
+            
+            <p:panel header="LISTADO">
+                <p:commandButton actionListener="#{controllerCli.actionListarEmpelados()}" value="Cargar Listado" update="@form"></p:commandButton>
+                <p:dataTable value="#{controllerCli.listado}" var="a" emptyMessage="Sin datos Cargados">
+                    <p:column headerText="CEDULA">
+                        <p:outputLabel value="#{a.cedula}"/>
+                    </p:column>
+                    <p:column headerText="NOMBRE">
+                        <p:outputLabel value="#{a.nombre}"/>
+                    </p:column>
+                    <p:column headerText="APELLIDO">
+                        <p:outputLabel value="#{a.apellido}"/>
+                    </p:column>
+                    <p:column headerText="CORREO">
+                        <p:outputLabel value="#{a.correo}"/>
+                    </p:column>
+                    <p:column headerText="TELEFONO">
+                        <p:outputLabel value="#{a.telefono}"/>
+                    </p:column>
+                </p:dataTable>
+            </p:panel>
+            
+            <p:panel header="INGRESO DE DATOS">
+            <h:panelGrid columns="2">
+                    <p:outputLabel>CEDULA: </p:outputLabel>
+                    <p:inputText ></p:inputText>
+                    <p:outputLabel>NOMBRE: </p:outputLabel>
+                    <p:inputText ></p:inputText>
+                    <p:outputLabel>APELLIDO: </p:outputLabel>
+                    <p:inputText ></p:inputText>
+                    <p:outputLabel>TELEFONO: </p:outputLabel>
+                    <p:inputText ></p:inputText>
+                    <p:outputLabel>CORREO:</p:outputLabel>
+                    <p:inputText></p:inputText>
+                    
+                </h:panelGrid>
+            </p:panel>
+            
+              
+            
+        </h:form>
+    </h:body>
+</html>
+
+
